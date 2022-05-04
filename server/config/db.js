@@ -1,5 +1,4 @@
 const mysql = require('mysql');
-const sql = require('./sql.js');
 
 const pool = mysql.createPool({
   connectionLimit: process.env.MYSQL_LIMIT,
@@ -10,8 +9,8 @@ const pool = mysql.createPool({
   database: process.env.MYSQL_DB
 });
 
-const query = async (alias, values) => {
-  return new Promise((resolve, reject) => pool.query(sql[alias], values, (error, results) => {
+const query = async (sql, alias, values) => {
+  return new Promise((resolve, reject) => pool.query(sql, values, (error, results) => {
     if (error) {
       console.log(error);
       reject({
