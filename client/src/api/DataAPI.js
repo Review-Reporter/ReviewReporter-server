@@ -8,16 +8,16 @@ const api = axios.create({
 const DataAPI = {
   getKeyword: async(category) => {
     const res = await api
-    .get(`/keyword?category=${category}`) // 변경
+    .get(`/keyword?category=${category}`)
     .catch(err =>
       console.log(err)
     );
     
     return res.data;
   },
-  getReview: async() => {
+  getReview: async(category, keyword) => {
     const res = await api
-    .get(`/review`)
+    .get(`/review?category=${category}&keyword=${keyword}`)
     .catch(err =>
       console.log(err)
     );

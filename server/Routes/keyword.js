@@ -4,12 +4,12 @@ const router = express.Router();
 
 router.get("/", async(req, res) => {
   const category = req.query.category;
-  const sql = `SELECT word, mention from keyword where category like '${category}'`;
+  const sql = `SELECT word, mention FROM keyword WHERE category LIKE '${category}'`;
   
   const keywords = await mysql.query(sql);
   let obj = {};
 
-  keywords.map((keyword, i) => {
+  keywords.map((keyword) => {
     const { word, mention } = keyword;
     obj[word] = mention
   })

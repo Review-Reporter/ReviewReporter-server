@@ -37,17 +37,20 @@ const Review = ({ category, keyword }) => {
       setKeywords(Object.keys(result));
     }
 
-    const getReviewData = async() => {
-      const result = await DataAPI.getReview();
+    getKeywordData();
+  }, []);
 
+  useEffect(() => {
+    const getReviewData = async() => {
+      const result = await DataAPI.getReview(category, reviewKeyword);
+      
       setData(result);
       const totalData = result.length;
       totalPage.current = Math.ceil(totalData / limit.current);
     }
 
-    getKeywordData();
-    //getReviewData();
-  }, []);
+    getReviewData();
+  }, [reviewKeyword]);
 
   useEffect(() => {
     countOffset(data);
