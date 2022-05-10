@@ -17,7 +17,8 @@ const Review = ({ category, keyword }) => {
   const [keywords, setKeywords] = useState(null);
   const [data, setData] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(-1);
+  const [contents, setContents] = useState(null);
   const totalPage = useRef(0);
   const limit = useRef(10);
   const pageRef = useRef(10);
@@ -28,6 +29,24 @@ const Review = ({ category, keyword }) => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: pageRef.current.offsetTop - 20});
+  }
+
+  const sliceContents = (data) => {
+    setContents(
+      data.slice(offset, offset + limit.current).map((review, i) => 
+        <ReviewContents
+          key={i}
+          id={review.id}
+          keyword={reviewKeyword}
+          vendor_name={review.vendor_name}
+          product_name={review.product_name}
+          date={review.date}
+          contents={review.contents}
+          url={review.url}
+          currentPage={currentPage}
+          reviewKeyword={reviewKeyword}
+        />
+    ))
   }
   
   useEffect(() => {
@@ -48,13 +67,17 @@ const Review = ({ category, keyword }) => {
       const totalData = result.length;
       totalPage.current = Math.ceil(totalData / limit.current);
     }
-
+    setCurrentPage(1);
     getReviewData();
   }, [reviewKeyword]);
 
   useEffect(() => {
-    countOffset(data);
+    countOffset();
   }, [currentPage]);
+
+  useEffect(() => {
+    if (data) sliceContents(data);
+  }, [offset, data])
 
   return (
     <PageContainer
@@ -74,19 +97,9 @@ const Review = ({ category, keyword }) => {
             ))}
           </TagContainer>
           }
-          {data &&
+          {contents &&
           <ReviewContainer>
-            {data.slice(offset, offset + limit.current).map((review, i) => 
-              <ReviewContents
-                key={i}
-                id={review.id}
-                vendor_name={review.vendor_name}
-                product_name={review.product_name}
-                date={review.date}
-                contents={review.contents}
-                url={review.url}
-              />
-            )}
+            {contents}
           </ReviewContainer>}
           <Pagination 
             currentPage={currentPage}

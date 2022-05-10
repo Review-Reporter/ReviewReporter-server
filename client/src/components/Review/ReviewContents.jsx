@@ -1,6 +1,7 @@
-import { useEffect, useState, useRef } from 'react';
-import styled, { css } from 'styled-components';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 import Fold from './Fold';
+import ReviewText from './ReviewText';
 
 const ReviewContentsContainer = styled.div`
   border-bottom: 1px solid ${props => props.theme.border_color};
@@ -20,35 +21,18 @@ const Meta = styled.div`
   margin-bottom: 1.5rem;
 `;
 
-const Text = styled.div`
-  ${props =>
-    !props.isOpen &&
-    css`
-      display: -webkit-box; 
-      word-wrap: break-word; 
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical; 
-      overflow: hidden; 
-      text-overflow: ellipsis;
-      height: 3.5rem;
-    `
-  }
-  
-  line-height: 1.2;
-  font-size: 1rem;
-`;
 
 
-
-const ReviewContents = ({ vendor_name , date, product_name, contents, url }) => {
+const ReviewContents = ({ keyword, vendor_name , date, product_name, contents, url, currentPage, reviewKeyword }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isFoldVisible, setIsFoldVisible] = useState(false);
-  const text = useRef(null);
 
-  useEffect(() => {
-    if (text.current.scrollHeight > 56) setIsFoldVisible(true);
-    else setIsFoldVisible(false);
-  }, [contents]);
+  const Text = () => {
+    const reviewText = contents.replaceAll(keyword, 
+      `<span style="background: #e4d7c0; color: black">${keyword}</span>`
+    );
+    return <div dangerouslySetInnerHTML={{ __html: reviewText }}></div>;
+  }
   
   return (
     <ReviewContentsContainer>
@@ -59,10 +43,13 @@ const ReviewContents = ({ vendor_name , date, product_name, contents, url }) => 
       > 
         <Meta>{vendor_name} · {date} · {product_name}</Meta>
       </ReviewLink>
-      <Text
-        ref={text}
+      <ReviewText
+        isFoldVisible={isFoldVisible}
+        setIsFoldVisible={setIsFoldVisible}
         isOpen={isOpen}
-      >{contents}</Text>
+        currentPage={currentPage}
+        reviewKeyword={reviewKeyword}
+      >{Text()}</ReviewText>
       <Fold
         isVisible={isFoldVisible}
         isOpen={isOpen}
