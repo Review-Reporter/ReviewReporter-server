@@ -5,6 +5,7 @@ export const theme = {
   },
   content_bg_color: "#1D1D1E",
   text_color: "#fff",
+  sub_text_color: "#eeeaea",
   primary_color: "#C3A474",
   sub_color: "#ECDEC8",
   border_color: "#424040",

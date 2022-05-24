@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setActivePage, setCategory } from '../../modules/data';
-import toteBag from '../../assets/images/toteBag.jpg';
-import backpack from '../../assets/images/backpack.jpg';
+import toteBag from '../../assets/images/category/Tote Bag.png';
+import backpack from '../../assets/images/category/Backpack.png';
 import {
   PageContainer,
   CategoryContainer,
   Category,
   Image,
-  Text
 } from '../../styles/Categories';
 
 
@@ -25,20 +24,18 @@ const Categories = () => {
         <Category
           onClick={() => {
             dispatch(setCategory('Tote Bag'));
-            dispatch(setActivePage('keywords'));
+            dispatch(setActivePage('total_analysis'));
           }}
         >
           <Image src={toteBag} />
-          <Text>Tote Bag</Text>
         </Category>
         <Category
           onClick={() => {
             dispatch(setCategory('Backpack'));
-            dispatch(setActivePage('keywords'));
+            dispatch(setActivePage('total_analysis'));
           }}
         >
           <Image src={backpack} />
-          <Text style={{left: '19%'}}>Backpack</Text>
         </Category>
       </CategoryContainer>
     </PageContainer>

@@ -6,7 +6,7 @@ export const PageContainer = styled.div`
   align-items: center;
   flex-direction: column;
   max-width: 1280px;
-  height: 100vh;
+  min-height: 100vh;
   padding: 2rem;
   margin: 0 auto;
   font-weight: 500;
@@ -21,7 +21,8 @@ export const Title = styled.div`
 export const ContentsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 845px;
+  font-size: 5vw;
+  position: relative;
 `;
 
 export const Category = styled.div`
@@ -32,25 +33,26 @@ export const Category = styled.div`
     `;
   }};
   letter-spacing: 2px;
-  font-size: 10rem;
+  font-size: 10vw;
   width: 100%;
 `;
 
 export const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: -4rem;
+  margin-top: -1.5em;
 `;
 
 export const Image = styled.img`
-  width: 19rem;
-  height: 400px;
+  width: 30%;
 `;
 
 export const KeywordContainer = styled.div``;
 
 export const WordCloudContainer = styled.div`
-  margin-top: -22rem;
+  position: absolute;
+  top: 1rem;
+  width: 100%;
 `;
 
 export const RankContainer = styled.div`
@@ -59,5 +61,5 @@ export const RankContainer = styled.div`
   flex-wrap: wrap;
   max-width: 70rem;
   margin: 0 auto;
-  margin-top: 4rem;
+  margin-top: 2rem;
 `;

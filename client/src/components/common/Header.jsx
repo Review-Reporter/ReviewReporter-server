@@ -74,10 +74,10 @@ const Header = () => {
     
     const throttle = (callback, waitTime) => {
       let timerId = null;
-      return (e) => {
+      return () => {
           if (timerId) return;
           timerId = setTimeout(() => {
-              callback.call(this, e);
+              callback();
               timerId = null;
           }, waitTime);
       };

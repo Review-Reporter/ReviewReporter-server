@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const PageContainer = styled.div`
   display: flex;
@@ -33,20 +33,5 @@ export const Category = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 400px;
-`;
-
-export const Text = styled.div`
-  ${({theme}) => {
-    return css`
-      font-family: ${theme.fonts.category};
-      color: ${theme.palette.yellow};
-    `;
-  }};
-  
-  position: absolute;
-  top: 50%;
-  left: 21%;
-  font-size: 3em;
-  letter-spacing: 2px;
+  width: 100%;
 `;

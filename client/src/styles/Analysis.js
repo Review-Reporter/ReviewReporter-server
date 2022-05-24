@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import { AiOutlineInfoCircle, AiOutlinePlusCircle } from 'react-icons/ai';
+import { IoCloseOutline } from 'react-icons/io5';
 
 export const PageContainer = styled.div`
   display: flex;
@@ -12,12 +14,26 @@ export const PageContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const Category = styled.div`
+export const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
   width: 100%;
+  margin-bottom: 2rem;
+`;
+
+export const Category = styled.div`
   font-size: 2.5rem;
-  margin-bottom: 3rem;
   font-weight: bold;
   letter-spacing: 0.1rem;
+`;
+
+export const InfoIcon = styled(AiOutlineInfoCircle)`
+  color: lightgray;
+  margin-left: 1rem;
+  cursor: pointer;
+
+  &:hover { opacity: 0.8; };
+  &:active { opacity: 0.7 };
 `;
 
 export const Keyword = styled.span`
@@ -31,13 +47,11 @@ export const ContentsContainer = styled.div`
 `;
 
 export const GraphContainer = styled.div`
-  width: 50%;
   padding: 1rem;
 `;
 
 export const Graph = styled.img`
   width: 100%;
-  height: 100%;
 `;
 
 export const Title = styled.div`
@@ -47,26 +61,40 @@ export const Title = styled.div`
 `;
 
 export const Background = styled.div`
+  position: relative;
   padding: 2rem;
   background: ${props => props.theme.dark_bg_color};
   width: 100%;
-  // height 추후 삭제
-  height: 50rem;
 
   ${props =>
     props.graph &&
     css`
       width: 100%;
-      height: 20rem;
       padding: 1rem;
-
-      &:hover {
-        transform: scale(1.3);
-      }
+      cursor: pointer;
     `
   };
 `;
 
+export const CloseIcon = styled(IoCloseOutline)`
+  color: darkgray;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  &:hover { opacity: 0.8; };
+  &:active { opacity: 0.7 };
+`;
+
+export const OpenIcon = styled(AiOutlinePlusCircle)`
+  color: darkgray;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  &:hover { opacity: 0.8; };
+  &:active { opacity: 0.7 };
+`;
 
 export const AnalysisContainer = styled.div`
   width: 100%;

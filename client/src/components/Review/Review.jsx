@@ -79,6 +79,10 @@ const Review = ({ category, keyword }) => {
     if (data) sliceContents(data);
   }, [offset, data])
 
+  useEffect(() => {
+    setReviewKeyword(keyword);
+  }, [keyword]);
+
   return (
     <PageContainer
       ref={pageRef}

@@ -24,6 +24,16 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  *::-moz-selection {
+    background-color: #555555; 
+    color: #f4f5f6;
+  }
+  
+  *::selection {
+    background-color: #555555; 
+    color: #f4f5f6;
+  }
+
   html {
     width: 100%;
     padding: 0;

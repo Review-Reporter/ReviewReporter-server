@@ -6,6 +6,7 @@ const RankContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1rem;
   margin: 1rem;
   margin-top: 0;
   cursor: pointer;
@@ -44,6 +45,7 @@ const RectBackground = styled.div`
   padding: 0.6rem;
   padding-left: 2rem;
   margin-left: -1rem;
+  font-size: 1.25rem;
   text-align: center;
   z-index: 1;
 `;

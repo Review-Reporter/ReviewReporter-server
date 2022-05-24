@@ -23,6 +23,15 @@ const DataAPI = {
     );
 
     return res.data;
+  },
+  getSelectedKeyword: async(category) => {
+    const res = await api
+    .get(`/total_analysis?category=${category}`)
+    .catch(err =>
+      console.log(err)
+    );
+
+    return res.data;
   }
 };
 

@@ -41,5 +41,6 @@ export const TagContainer = styled.div`
 
 export const ReviewContainer = styled.div`
   padding: 1rem 0;
+  color: ${props => props.theme.sub_text_color};
 `;
 
