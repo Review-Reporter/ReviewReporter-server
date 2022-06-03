@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { setActivePage, setCategory } from '../../modules/data';
 import toteBag from '../../assets/images/category/Tote Bag.png';
@@ -11,15 +11,34 @@ import {
 } from '../../styles/Categories';
 
 
-const Categories = () => {
+const Categories = ({ setPageOffset }) => {
+  const pageRef = useRef();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setCategory(null));
   }, []);
 
+  useEffect(() => {
+    if (!pageRef) return;
+
+    const calculateOffset = () => {
+      const offsetBottom = pageRef.current.offsetTop + pageRef.current.offsetHeight;
+      
+      setPageOffset(offsetBottom);
+    }
+
+    calculateOffset();
+    window.addEventListener('resize', calculateOffset);
+    return () => {
+      window.removeEventListener('resize', calculateOffset);
+    }
+  }, []);
+
   return (
-    <PageContainer>
+    <PageContainer
+      ref={pageRef}
+    >
       <CategoryContainer>
         <Category
           onClick={() => {

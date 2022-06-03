@@ -13,23 +13,14 @@ import {
   Image,
   KeywordContainer,
   WordCloudContainer,
+  ContentsTitle,
   RankContainer,
 } from '../../styles/Keywords';
 
 
-const Keywords = ({ category }, ref) => {
+const Keywords = ({ category, setPageOffset }, ref) => {
   const [data, setData] = useState(null);
   const [rank, setRank] = useState(null);
-
-  useEffect(() => {
-    const getKeywordData = async() => {
-      const result = await DataAPI.getKeyword(category);
-      setData(result);
-      calculateRank(result);
-    }
-
-    getKeywordData();
-  }, [category]);
 
   const calculateRank = (data) => {
     let keys = Object.keys(data);
@@ -52,6 +43,33 @@ const Keywords = ({ category }, ref) => {
 
     setRank(keys);
   }
+
+  useEffect(() => {
+    if (!ref) return;
+
+    const calculateOffset = () => {
+      const offsetBottom = ref.current.offsetTop + ref.current.offsetHeight;
+      
+      setPageOffset(offsetBottom);
+    }
+
+    calculateOffset();
+    window.addEventListener('resize', calculateOffset);
+    return () => {
+      window.removeEventListener('resize', calculateOffset);
+    }
+  }, []);
+
+  useEffect(() => {
+    const getKeywordData = async() => {
+      const result = await DataAPI.getKeyword(category);
+      setData(result);
+      calculateRank(result);
+    }
+
+    getKeywordData();
+  }, [category]);
+  
 
   if (!category) return null;
   return (
@@ -78,6 +96,7 @@ const Keywords = ({ category }, ref) => {
         </KeywordContainer>
         {rank &&
         <RankContainer>
+          <ContentsTitle>워드 클라우드 순위</ContentsTitle>
           {rank.map((keyword, i) => (
             <Rank 
               key={i} 

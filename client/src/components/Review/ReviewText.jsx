@@ -23,7 +23,7 @@ const ReviewText = ({ isOpen, setIsFoldVisible, children, currentPage, reviewKey
   const text = useRef(null);
 
   const handleResize = () => {
-    if (text.current.scrollHeight > 58) setIsFoldVisible(true);
+    if (text.current.scrollHeight > 59) setIsFoldVisible(true);
     else setIsFoldVisible(false);
   }
 

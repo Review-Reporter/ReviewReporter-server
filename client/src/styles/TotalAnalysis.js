@@ -7,11 +7,12 @@ export const PageContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1280px;
+  max-width: 1080px;
   min-height: 100vh;
   padding: 2rem;
   padding-bottom: 4rem;
   margin: 0 auto;
+  margin-top: 6rem;
   font-weight: 500;
 `;
 
@@ -22,7 +23,8 @@ export const TitleContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const Title = styled.div`
+export const Title = styled.h3`
+  font-weight: bold;
   font-size: 1.5rem;
 `;
 
@@ -51,51 +53,30 @@ export const HighLight = styled.span`
 
 export const ContentsContainer = styled.div`
   display: flex;
+  justify-content: center;
+  flex-flow: wrap;
   width: 100%;
   margin-bottom: 2rem;
 `;
 
-export const KeywordContainer = styled.div`
-  text-align: center;
-  margin-top: 1rem;
-  padding: 0 1rem;
-`;
-
-export const Keyword = styled.span`
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.9rem;
-  margin: 0 0.5rem;
-
-  ${props => {
-    const isStatic = props.static;
-
-    if (isStatic) return null;
-    return css`
-      cursor: pointer;
-      &:hover { opacity: 0.8; };
-      &:active { opacity: 0.7 };
-    `
-  }};
-
-  color: ${props => props.isSelected ? "white" : "darkgray"};
-`;
-
-export const Line = styled.div`
-  width: 1rem;
-  height: 2px;
-  margin-right: 0.4rem;
-  background: ${props => props.color};
-`;
-
 export const ContentsTitle = styled.div`
+  font-size: 1.4rem;
+  margin-bottom: 0.7rem;
+  padding-left: 0.5rem;
+`;
+
+export const GraphTitle = styled.h3`
   font-size: 1.25rem;
+  color: lightgray;
+  border-bottom: 1px solid gray;
+  padding-bottom: 0.5rem;
   margin-bottom: 0.7rem;
   padding-left: 0.5rem;
 `;
 
 export const GraphContainer = styled.div`
   padding: 1rem;
+  font-size: 5vw;
 `;
 
 export const Graph = styled.img`
@@ -112,24 +93,18 @@ export const Background = styled.div`
   ${props =>
     props.graph &&
     css`
-      width: 100%;
+      width: 7.5em;
+      max-width: 26rem;
+      padding: 0;
       padding: 1rem;
       cursor: pointer;
+      &:hover { opacity: 0.8; };
+      &:active { opacity: 0.7 };
     `
   };
 `;
 
 export const CloseIcon = styled(IoCloseOutline)`
-  color: darkgray;
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  cursor: pointer;
-  &:hover { opacity: 0.8; };
-  &:active { opacity: 0.7 };
-`;
-
-export const OpenIcon = styled(AiOutlinePlusCircle)`
   color: darkgray;
   position: absolute;
   top: 0.5rem;
@@ -166,4 +141,12 @@ export const Button = styled.div`
 
   &:hover { opacity: 0.8; };
   &:active { opacity: 0.7 };
+`;
+
+export const SummaryTitle = styled.div`
+  font-size: 1.3rem;
+  color: ${props => props.theme.sub_color};
+  border-bottom: 1px solid gray;
+  padding-bottom: 0.7rem;
+  margin-bottom: 0.7rem;
 `;

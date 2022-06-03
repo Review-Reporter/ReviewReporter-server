@@ -16,6 +16,7 @@ const Button = styled.div`
   line-height: 2.2;
   font-size: 1rem;
   padding-right: 1px;
+  font-family: ${ props => props.theme.fonts.title };
   cursor: pointer;
 
   &:hover{ opacity: 0.8 };

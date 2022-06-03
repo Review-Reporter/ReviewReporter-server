@@ -5,7 +5,7 @@ export const PageContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1280px;
+  max-width: 1080px;
   height: 100vh;
   padding: 2rem;
   margin: 0 auto;
@@ -19,7 +19,7 @@ export const CategoryContainer = styled.div`
 
 export const Category = styled.div`
   display: inline-block;
-  max-width: 400px;
+  max-width: 380px;
   margin: 2rem 1rem;
   cursor: pointer;
   position: relative;

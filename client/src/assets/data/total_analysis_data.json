@@ -1,0 +1,27 @@
+{ 
+  "Backpack": {
+    "comment": [
+      "<span style='color: #ECDEC8'>'학교', '책가방', '대학생'</span>과 같은 키워드가 판매량에 영향을 미치는 것을 보아, <span style='color: #ECDEC8'>주 소비층이 학교에 다니는 학생</span>임을 파악할 수 있습니다.",
+      "또한 <span style='color: #ECDEC8'>3월 직전에 판매량이 가장 증가</span>한 것으로 보아, <span style='color: #ECDEC8'>개강 및 개학을 하는 시기에 수요가 가장 높음</span>을 파악할 수 있습니다.",
+      "'학교', '책가방', '대학생'의 언급량이 증가한 시점으로부터 <span style='color: #ECDEC8'>약 1주일 뒤</span> 판매량이 집중되는 것으로 보아, <span style='color: #ECDEC8'>마케팅에 대한 기대효과 또한 약 1주의 간격을 두고 나타날 것으로 예상</span>됩니다.",
+      "<span style='color: #ECDEC8'>주요 타겟을 10대 후반에서 20대 초반으로 설정</span>하여, 타겟층이 주로 이용하는 <span style='color: #ECDEC8'>SNS 및 커뮤니티에 온라인으로 홍보할 것을 권장</span>합니다."
+    ],
+    "summary": [
+      "<li>주요 타겟 연령 10대 후반에서 20대 초반으로 설정</li><li>에브리타임, 인스타그램, 틱톡 등 타겟층이 주로 이용하는 SNS 및 커뮤니티에 온라인으로 홍보</li><li>'새학기 맞이'와 같은 개학 및 개강 관련 문구 활용</li>",
+      "<li>1월 말 ~ 2월 말</li><li>7월 말 ~ 8월 말</li>"
+    ]
+  },
+  "Tote Bag": {
+    "comment": [
+      "<span style='color: #ECDEC8'>'허니제이'</span>과 같은 키워드가 판매량에 영향을 미치는 것을 보아, <span style='color: #ECDEC8'>화제 인물의 착용이 판매량 증가에 영향</span>을 준 것으로 파악됩니다.",
+      "리뷰에서 등장한 키워드의 빈도 수를 비교했을 때 <span style='color: #ECDEC8'>'퇴근'과 '허니제이'의 연관성에 대해 추가 조사</span>가 필요하다고 판단하였고, 그 결과 '퇴근'은 '허니제이'의 부가적 요소로 작용하였으며 일명 <span style='color: #ECDEC8'>'허니제이의 퇴근 가방'이라 불리며 주목을 받기 시작</span>한 것으로 나타났습니다.",
+      "'허니제이', '퇴근'의 언급량이 증가한 시점으로부터 <span style='color: #ECDEC8'>약 1개월 뒤</span> 판매량이 집중되는 것으로 보아, <span style='color: #ECDEC8'>마케팅에 대한 기대효과 또한 약 1개월의 간격을 두고 나타날 것으로 예상</span>됩니다.",
+      "위의 분석 결과를 통해 해당 제품을 <span style='color: #ECDEC8'>화제성이 있는 TV 프로그램 혹은 인물을 활용하여 홍보하는 것을 권장</span>합니다",
+      "또한 <span style='color: #ECDEC8'>'나일론'</span>이 판매량에 영향을 미치는 것으로 보아, <span style='color: #ECDEC8'>친환경 소재에 대한 사회적 관심도가 판매량 증가에 영향</span>을 준 것으로 파악되므로 <span style='color: #ECDEC8'>친환경적 요소를 부각시켜 홍보물 제작을 권장</span>합니다."
+    ],
+    "summary": [
+      "<li>해당 제품을 화제성이 있는 TV 프로그램 혹은 인물을 활용하여 홍보</li><li>친환경적 요소를 부각시켜 홍보물 제작</li>",
+      "<li>상시</li>"
+    ]
+  }
+}

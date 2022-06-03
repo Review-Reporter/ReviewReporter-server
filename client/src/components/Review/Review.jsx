@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, forwardRef } from 'react';
 import DataAPI from '../../api/DataAPI';
 import ReviewContents from './ReviewContents';
 import Tag from './Tag';
@@ -12,7 +12,7 @@ import {
   ReviewContainer
 } from '../../styles/Review';
 
-const Review = ({ category, keyword }) => {
+const Review = ({ category, keyword, setPageOffset }, ref) => {
   const [reviewKeyword, setReviewKeyword] = useState(keyword);
   const [keywords, setKeywords] = useState(null);
   const [data, setData] = useState(null);
@@ -21,14 +21,13 @@ const Review = ({ category, keyword }) => {
   const [contents, setContents] = useState(null);
   const totalPage = useRef(0);
   const limit = useRef(10);
-  const pageRef = useRef(10);
 
   const countOffset = () => {
     setOffset((currentPage - 1) * limit.current)
   }
 
   const scrollToTop = () => {
-    window.scrollTo({ top: pageRef.current.offsetTop - 20});
+    window.scrollTo({ top: ref.current.offsetTop - 20});
   }
 
   const sliceContents = (data) => {
@@ -48,6 +47,22 @@ const Review = ({ category, keyword }) => {
         />
     ))
   }
+
+  useEffect(() => {
+    if (!ref) return;
+
+    const calculateOffset = () => {
+      const offsetBottom = ref.current.offsetTop + ref.current.offsetHeight;
+      
+      setPageOffset(offsetBottom);
+    }
+
+    calculateOffset();
+    window.addEventListener('resize', calculateOffset);
+    return () => {
+      window.removeEventListener('resize', calculateOffset);
+    }
+  }, []);
   
   useEffect(() => {
     const getKeywordData = async() => {
@@ -85,7 +100,7 @@ const Review = ({ category, keyword }) => {
 
   return (
     <PageContainer
-      ref={pageRef}
+      ref={ref}
     >
       <PageTitle>키워드별 리뷰</PageTitle>
       <ContentsContainer>
@@ -117,4 +132,4 @@ const Review = ({ category, keyword }) => {
   );
 };
 
-export default Review;
+export default forwardRef(Review);

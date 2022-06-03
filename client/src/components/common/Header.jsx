@@ -26,7 +26,7 @@ const HeaderWrapper = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  width: 1280px;
+  width: 1080px;
   display: flex;
   align-items: center;
   justify-content: space-between;

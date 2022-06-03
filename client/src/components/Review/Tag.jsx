@@ -7,6 +7,7 @@ const TagWrapper = styled.div`
   padding: 0.5rem 0.8rem;
   border-radius: 7px;
   font-size: 0.98rem;
+  font-family: ${ props => props.theme.fonts.title };
   cursor: pointer;
 
   ${props =>

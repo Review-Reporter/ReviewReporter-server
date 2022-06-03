@@ -5,7 +5,7 @@ export const PageContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1280px;
+  max-width: 1080px;
   padding: 2rem;
   margin: 0 auto;
   font-weight: 500;
@@ -17,11 +17,12 @@ export const ContentsContainer = styled.div`
   padding: 1rem;
 `;
 
-export const PageTitle = styled.div`
+export const PageTitle = styled.h3`
   width: 100%;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   margin-left: 3rem;
+  font-weight: bold;
 `;
 
 export const Background = styled.div`

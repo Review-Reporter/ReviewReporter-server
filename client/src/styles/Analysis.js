@@ -7,11 +7,12 @@ export const PageContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1280px;
+  max-width: 1080px;
   padding: 2rem;
   margin: 0 auto;
   font-weight: 500;
   margin-bottom: 2rem;
+  margin-top: 6rem;
 `;
 
 export const TitleContainer = styled.div`
@@ -21,15 +22,14 @@ export const TitleContainer = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const Category = styled.div`
-  font-size: 2.5rem;
+export const Title = styled.h3`
   font-weight: bold;
-  letter-spacing: 0.1rem;
+  font-size: 1.5rem;
 `;
 
 export const InfoIcon = styled(AiOutlineInfoCircle)`
   color: lightgray;
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   cursor: pointer;
 
   &:hover { opacity: 0.8; };
@@ -42,22 +42,39 @@ export const Keyword = styled.span`
 
 export const ContentsContainer = styled.div`
   display: flex;
+  justify-content: center;
+  flex-flow: wrap;
   width: 100%;
   margin-bottom: 2rem;
 `;
 
+export const GraphTitle = styled.h3`
+  font-size: 1.25rem;
+  color: lightgray;
+  border-bottom: 1px solid gray;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+  padding-left: 0.5rem;
+`;
+
 export const GraphContainer = styled.div`
   padding: 1rem;
+  font-size: 5vw;
 `;
 
 export const Graph = styled.img`
   width: 100%;
 `;
 
-export const Title = styled.div`
-  font-size: 1.25rem;
+export const ContentsTitle = styled.h3`
+  font-size: 1.4rem;
   margin-bottom: 0.7rem;
   padding-left: 0.5rem;
+`;
+
+export const SubTitle = styled.span`
+  font-size: 1rem;
+  color: lightgray;
 `;
 
 export const Background = styled.div`
@@ -69,11 +86,35 @@ export const Background = styled.div`
   ${props =>
     props.graph &&
     css`
-      width: 100%;
+      width: 7.5em;
+      max-width: 26rem;
+      padding: 0;
       padding: 1rem;
       cursor: pointer;
+      &:hover { opacity: 0.8; };
+      &:active { opacity: 0.7 };
     `
   };
+`;
+
+export const Text = styled.p`
+  color: ${ props => props.theme.sub_text_color };
+  font-size: 1.1rem;
+  line-height: 1.3;
+`;
+
+export const List = styled.li`
+
+`;
+
+export const Value = styled.p`
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+`;
+
+export const HighLight = styled.span`
+  color: ${props => props.theme.sub_color};
 `;
 
 export const CloseIcon = styled(IoCloseOutline)`

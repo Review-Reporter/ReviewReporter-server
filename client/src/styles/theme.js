@@ -15,6 +15,7 @@ export const theme = {
     logo: 'LeferiPoint-BlackObliqueA',
     menu: `'Lato', sans-serif`,
     category: `'Abril Fatface', cursive`,
-    base: `NanumBarunGothic`
+    base: `SpoqaHanSansNeo-Regular`,
+    title: `NanumBarunGothic`
   }
 }
