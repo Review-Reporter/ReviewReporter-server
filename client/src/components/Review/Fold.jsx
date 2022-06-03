@@ -37,9 +37,8 @@ const Fold = ({ isVisible, isOpen, setIsOpen }) => {
       onClick={() => setIsOpen(!isOpen)}
     >
       <FoldText>{isOpen ? "접기" : "펼치기"}</FoldText>
-        {isOpen ? <ArrowUp /> : <ArrowDown />}
+      {isOpen ? <ArrowUp /> : <ArrowDown />}
     </FoldContainer>
-
   )
 };
 

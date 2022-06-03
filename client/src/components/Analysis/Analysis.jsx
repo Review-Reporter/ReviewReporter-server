@@ -23,7 +23,8 @@ import {
 
 const Analysis = ({ category, keyword, setPageOffset }, ref) => {
   const [folder, setFolder] = useState(null);
-  const [pValue, setPValue] = useState(null);
+  const [pValue1, setPValue1] = useState(null); // 키워드 -> 판매량
+  const [pValue2, setPValue2] = useState(null); // 판매량 -> 키워드
   const [lag, setLag] = useState(0);
   const [isRelated, setIsRelated] = useState(false);
   const [isInfoVisible, setIsInfoVisible] = useState(false);
@@ -64,7 +65,8 @@ const Analysis = ({ category, keyword, setPageOffset }, ref) => {
     const getAnalysisData = async() => {
       const result = await DataAPI.getAnalysis(category, keyword);
 
-      setPValue(result.p_value);
+      setPValue1(result.p_value1);
+      setPValue2(result.p_value2);
       setLag(result.lag_value);
       setIsRelated(result.isRelated);
     }
@@ -98,10 +100,12 @@ const Analysis = ({ category, keyword, setPageOffset }, ref) => {
           isVisible={isInfoVisible}
           setIsVisible={setIsInfoVisible}
         > 
-          <span style={{fontWeight: 'bold'}}>p-value란?</span><br/>
-          <t/>Granger Causality TEST의 검정 값.<br/><br/>
+          <span style={{fontWeight: 'bold', fontSize: '1.15rem'}}>p-value란?</span><br/>
+          Granger Causality TEST의 검정 값.<br/><br/>
+          <div style={{marginBottom: '0.5rem'}}>ex ) A → B : A가 B에 영향을 주는지 검사</div>
           <li>0.05 &lt; p-value일 경우, 인과관계를 따르지 않음.<br/></li>
-          <li>0.05 &gt; p-value일 경우, 인과관계를 따름.</li>
+          <li>0.05 &gt; p-value일 경우, 인과관계를 따름.<br/>
+            <div style={{color: 'darkgray', marginTop: '0.3rem', textAlign: 'center'}}>(양방향 모두 0.05 &lt; p-value일 경우, 인과관계를 따르지 않음.)</div></li>
         </PopUp>
       </TitleContainer>
       <ContentsContainer>
@@ -141,16 +145,17 @@ const Analysis = ({ category, keyword, setPageOffset }, ref) => {
         <AnalysisContainer>
           <ContentsTitle>분석 결과</ContentsTitle>
           {lag &&
-           pValue &&
+           pValue1 && pValue2 &&
            keyword &&
            <Background>
              <Value>
-              <List>p-value : {pValue}</List>
-              <List>lag : {lag}</List>
+              <List>{keyword} → 판매량 p-value : <HighLight>{pValue1}</HighLight></List>
+              <List>판매량 → {keyword} p-value : <HighLight>{pValue2}</HighLight></List>
+              <List>lag : <HighLight>{lag}</HighLight></List>
              </Value>
              <Text>
               <HighLight>'{keyword}'</HighLight>의 언급량과 판매량의 증감 추이를 비교하여 {lag}의 간격으로 조정을 가했을 때 가장 유사할 것으로 분석되었으{isRelated ? "며" : "나"},
-              인과 검정 결과 <HighLight>{pValue}</HighLight>의 값으로 <HighLight style={{ fontWeight: 'bold' }}>인과 관계가 {isRelated ? "있습니다" : "없습니다"}.</HighLight>
+              인과 검정 결과 <HighLight>{keyword} → 판매량 방향</HighLight>의 p-value는 <HighLight>{pValue1}</HighLight>, <HighLight>판매량 → {keyword} 방향</HighLight>의 p-value는 <HighLight>{pValue2}</HighLight>으로 <HighLight style={{ fontWeight: 'bold' }}>인과관계가 {isRelated ? "있습니다" : "없습니다"}.</HighLight>
             </Text>
           </Background>}
         </AnalysisContainer>

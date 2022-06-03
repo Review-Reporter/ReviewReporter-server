@@ -21,7 +21,6 @@ const Text = styled.div`
 
 const ReviewText = ({ isOpen, setIsFoldVisible, children, currentPage, reviewKeyword }) => {
   const text = useRef(null);
-
   const handleResize = () => {
     if (text.current.scrollHeight > 59) setIsFoldVisible(true);
     else setIsFoldVisible(false);
@@ -29,7 +28,6 @@ const ReviewText = ({ isOpen, setIsFoldVisible, children, currentPage, reviewKey
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     }
@@ -37,7 +35,7 @@ const ReviewText = ({ isOpen, setIsFoldVisible, children, currentPage, reviewKey
 
   useEffect(() => {
     handleResize();
-  }, [currentPage, reviewKeyword]);
+  }, [children]);
 
   return (
     <Text

@@ -23,8 +23,8 @@ const PopUpContainer = styled.div`
   align-items: center;
   position: relative;
   width: 30rem;
-  height: 10rem;
-  padding: 1rem;
+  min-height: 10rem;
+  padding: 1.5rem;
   background: white;
   border-radius: 0.2rem;
 
@@ -93,7 +93,7 @@ const PopUp = ({ isVisible, setIsVisible, graph, children }) => {
         is_graph={graph}
       >
         <CloseIcon size="30"
-          title="클릭 시 이미지가 축소됩니다."
+          title={graph ? "클릭 시 이미지가 축소됩니다." : ""}
           is_graph={graph}
           onClick={handleClosePopUp}
         />
