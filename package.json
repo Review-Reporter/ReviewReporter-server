@@ -2,9 +2,10 @@
   "scripts": {
     "server": "cd server && nodemon server",
     "client": "cd client && npm start",
-    "start": "node server.js"
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "heroku-prebuild": "npm install --dev",
+    "heroku-postbuild": "cd client-app && npm install && npm install webpack-cli --dev && npm run build"
   },
-  "main": "server.js",
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
@@ -24,6 +25,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
     "redux": "^4.2.0",
+    "serve": "^13.0.2",
     "styled-components": "^5.3.5",
     "styled-reset": "^4.3.4"
   }
