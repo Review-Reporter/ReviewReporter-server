@@ -17,7 +17,7 @@ app.use("/api/review", reviewRouter);
 app.use("/api/total_analysis", totalAnalysisRouter);
 app.use("/api/analysis", analysisRouter);
 
-const port = 4000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
