@@ -28,5 +28,8 @@
     "serve": "^13.0.2",
     "styled-components": "^5.3.5",
     "styled-reset": "^4.3.4"
+  },
+  "engines": {
+    "node": "16.1.0"
   }
 }
