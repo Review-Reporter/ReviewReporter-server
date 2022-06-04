@@ -4,7 +4,7 @@
     "client": "cd client && npm start",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "heroku-prebuild": "npm install --dev",
-    "heroku-postbuild": "cd client-app && npm install && npm install webpack-cli --dev && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm install webpack-cli --dev && npm run build"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
