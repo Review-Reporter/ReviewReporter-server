@@ -9,6 +9,7 @@ export const theme = {
   primary_color: "#C3A474",
   sub_color: "#ECDEC8",
   border_color: "#424040",
+  highlight_color: "#ddcbaf",
   light_bg_color: "#3f3f3f",
   dark_bg_color: "#1d1d1e",
   fonts: {

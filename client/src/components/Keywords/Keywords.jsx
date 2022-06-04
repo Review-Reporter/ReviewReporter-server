@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useState } from 'react';
 import DataAPI from '../../api/DataAPI';
-import toteBag from '../../assets/images/toteBag.png';
-import backpack from '../../assets/images/backpack.png';
+import toteBag from '../../assets/images/product/toteBag.png';
+import backpack from '../../assets/images/product/backpack.png';
 import WordCloud from './WordCloud';
 import Rank from './Rank';
 import {

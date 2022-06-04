@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { AiOutlineInfoCircle, AiOutlinePlusCircle } from 'react-icons/ai';
+import { AiOutlineInfoCircle } from 'react-icons/ai';
 import { IoCloseOutline } from 'react-icons/io5'
 
 export const PageContainer = styled.div`
@@ -34,7 +34,7 @@ export const SubTitle = styled.span`
 `;
 
 export const Category = styled.span`
-  color: ${ props => props.theme.sub_color };
+  color: ${ props => props.theme.highlight_color };
   font-weight: bold;
 `;
 
@@ -48,7 +48,7 @@ export const InfoIcon = styled(AiOutlineInfoCircle)`
 `;
 
 export const HighLight = styled.span`
-  color: ${props => props.theme.sub_color};
+  color: ${props => props.theme.highlight_color};
 `;
 
 export const ContentsContainer = styled.div`

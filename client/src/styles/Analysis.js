@@ -37,7 +37,7 @@ export const InfoIcon = styled(AiOutlineInfoCircle)`
 `;
 
 export const Keyword = styled.span`
-  color: ${props => props.theme.sub_color};
+  color: ${props => props.theme.highlight_color};
 `;
 
 export const ContentsContainer = styled.div`
@@ -114,7 +114,7 @@ export const Value = styled.p`
 `;
 
 export const HighLight = styled.span`
-  color: ${props => props.theme.sub_color};
+  color: ${props => props.theme.highlight_color};
 `;
 
 export const CloseIcon = styled(IoCloseOutline)`
