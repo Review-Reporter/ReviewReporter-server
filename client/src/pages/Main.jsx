@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setKeyword, setActivePage, setIsKeywordsVisible, setScrollPage } from '../modules/data';
 import TotalAnalysis from '../components/TotalAnalysis/TotalAnalysis';

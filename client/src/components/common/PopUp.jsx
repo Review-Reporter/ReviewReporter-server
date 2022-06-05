@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { setIsPopUpVisible } from '../../modules/data';

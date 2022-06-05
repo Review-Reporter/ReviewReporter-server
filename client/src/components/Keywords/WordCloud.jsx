@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setKeyword, setActivePage } from '../../modules/data';
 import styled, { css } from 'styled-components';

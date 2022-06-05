@@ -11,6 +11,8 @@ const totalAnalysisRouter = require('./Routes/total_analysis');
 const analysisRouter = require('./Routes/analysis');
 
 app.use(cors());
+app.use(express.static(__dirname + "/client/build"));
+
 app.use("/", indexRouter);
 app.use("/api/keyword", keywordRouter);
 app.use("/api/review", reviewRouter);

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, forwardRef } from 'react';
+import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import DataAPI from '../../api/DataAPI';
 import ReviewContents from './ReviewContents';
 import Tag from './Tag';

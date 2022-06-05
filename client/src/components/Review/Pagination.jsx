@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { MdArrowBackIosNew, MdArrowForwardIos } from 'react-icons/md';
 
@@ -81,12 +81,16 @@ const Pagination = ({ currentPage, setCurrentPage, totalPage, scrollToTop }) => 
       {startPage > 1 && 
       <Button
         onClick={setPrevPage}
-      ><Prev /></Button>}
+      >
+        <Prev />
+      </Button>}
       <ButtonContainer />
       {startPage + limit.current <= totalPage &&
       <Button
         onClick={setNextPage}
-      ><Next /></Button>}
+      >
+        <Next />
+      </Button>}
     </PaginationContainer>
   )
 };

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { setActivePage, setCategory } from '../../modules/data';
 import toteBag from '../../assets/images/category/Tote Bag.png';

@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import DataAPI from '../../api/DataAPI';
 import toteBag from '../../assets/images/product/toteBag.png';
 import backpack from '../../assets/images/product/backpack.png';

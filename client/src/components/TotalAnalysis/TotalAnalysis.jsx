@@ -1,4 +1,4 @@
-import { useState, forwardRef, useEffect } from 'react';
+import React, { useState, forwardRef, useEffect } from 'react';
 import PopUp from '../common/PopUp';
 import DataAPI from '../../api/DataAPI';
 import AnalysisData from '../../assets/data/total_analysis_data.json';
