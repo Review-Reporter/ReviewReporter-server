@@ -36,6 +36,10 @@ export const Category = styled.div`
   letter-spacing: 2px;
   font-size: 10vw;
   width: 100%;
+
+  @media screen and (min-width: 1481px) {
+    font-size: 148px;
+  }
 `;
 
 export const ImageWrapper = styled.div`
@@ -45,6 +49,7 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
+  margin-top: 0.4em;
   width: 22%;
 `;
 

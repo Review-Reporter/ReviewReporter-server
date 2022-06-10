@@ -1,4 +1,5 @@
 import React, { useState, useEffect, forwardRef } from 'react';
+import Loading from '../common/Loading';
 import DataAPI from '../../api/DataAPI';
 import PopUp from '../common/PopUp';
 import {
@@ -22,6 +23,7 @@ import {
 
 
 const Analysis = ({ category, keyword, setPageOffset }, ref) => {
+  const [loading, setLoading] = useState(true);
   const [folder, setFolder] = useState(null);
   const [pValue1, setPValue1] = useState(null); // 키워드 -> 판매량
   const [pValue2, setPValue2] = useState(null); // 판매량 -> 키워드
@@ -70,8 +72,9 @@ const Analysis = ({ category, keyword, setPageOffset }, ref) => {
       setLag(result.lag_value);
       setIsRelated(result.isRelated);
     }
-
-    getAnalysisData();
+    setLoading(true);
+    getAnalysisData()
+    .then(() => setLoading(false));
   }, [keyword]);
 
   useEffect(() => {
@@ -93,6 +96,7 @@ const Analysis = ({ category, keyword, setPageOffset }, ref) => {
     <PageContainer
       ref={ref}
     >
+      {loading ? <Loading /> : <>
       <TitleContainer>
         <Title><Keyword>'{keyword}'</Keyword> 키워드 세부 분석</Title>     
         <InfoIcon size="24" onClick={() => setIsInfoVisible(true)}/>
@@ -159,7 +163,7 @@ const Analysis = ({ category, keyword, setPageOffset }, ref) => {
             </Text>
           </Background>}
         </AnalysisContainer>
-      </ContentsContainer>
+      </ContentsContainer></>}
       {selectedGraph &&
       <PopUp
         graph

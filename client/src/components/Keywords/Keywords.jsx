@@ -1,4 +1,5 @@
 import React, { forwardRef, useEffect, useState } from 'react';
+import Loading from '../common/Loading';
 import DataAPI from '../../api/DataAPI';
 import toteBag from '../../assets/images/product/toteBag.png';
 import backpack from '../../assets/images/product/backpack.png';
@@ -19,6 +20,7 @@ import {
 
 
 const Keywords = ({ category, setPageOffset }, ref) => {
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [rank, setRank] = useState(null);
 
@@ -67,7 +69,9 @@ const Keywords = ({ category, setPageOffset }, ref) => {
       calculateRank(result);
     }
 
-    getKeywordData();
+    setLoading(true)
+    getKeywordData()
+    .then(() => setLoading(false));
   }, [category]);
   
 
@@ -76,6 +80,7 @@ const Keywords = ({ category, setPageOffset }, ref) => {
     <PageContainer
       ref={ref}
     >
+      {loading ? <Loading /> : <>
       <Title>주요 언급 키워드</Title>
       <Category>{category}</Category>
       <ContentsContainer>
@@ -105,7 +110,7 @@ const Keywords = ({ category, setPageOffset }, ref) => {
             />
           ))}
         </RankContainer>}
-      </ContentsContainer>
+      </ContentsContainer></>}
     </PageContainer>
   )
 };

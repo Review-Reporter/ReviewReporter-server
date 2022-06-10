@@ -63,6 +63,7 @@ export const ContentsTitle = styled.div`
   font-size: 1.4rem;
   margin-bottom: 0.7rem;
   padding-left: 0.5rem;
+  font-weight: bold;
 `;
 
 export const GraphTitle = styled.h3`
@@ -145,7 +146,7 @@ export const Button = styled.div`
 
 export const SummaryTitle = styled.div`
   font-size: 1.3rem;
-  color: ${props => props.theme.sub_color};
+  font-weight: bold;
   border-bottom: 1px solid gray;
   padding-bottom: 0.7rem;
   margin-bottom: 0.7rem;

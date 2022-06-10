@@ -70,6 +70,7 @@ export const ContentsTitle = styled.h3`
   font-size: 1.4rem;
   margin-bottom: 0.7rem;
   padding-left: 0.5rem;
+  font-weight: bold;
 `;
 
 export const SubTitle = styled.span`

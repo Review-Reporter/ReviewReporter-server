@@ -32,6 +32,7 @@ const Num = styled.div`
   line-height: 2.4rem;
   text-align: center;
   font-weight: bold;
+  font-family: ${props => props.theme.fonts.title};
 `;
 
 const Keyword = styled.div`

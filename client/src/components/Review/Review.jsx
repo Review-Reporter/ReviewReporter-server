@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, forwardRef } from 'react';
+import Loading from '../common/Loading';
 import DataAPI from '../../api/DataAPI';
 import ReviewContents from './ReviewContents';
 import Tag from './Tag';
@@ -13,6 +14,7 @@ import {
 } from '../../styles/Review';
 
 const Review = ({ category, keyword, setPageOffset }, ref) => {
+  const [loading, setLoading] = useState(true);
   const [reviewKeyword, setReviewKeyword] = useState(keyword);
   const [keywords, setKeywords] = useState(null);
   const [data, setData] = useState(null);
@@ -82,8 +84,10 @@ const Review = ({ category, keyword, setPageOffset }, ref) => {
       const totalData = result.length;
       totalPage.current = Math.ceil(totalData / limit.current);
     }
+    setLoading(true);
     setCurrentPage(1);
-    getReviewData();
+    getReviewData()
+    .then(() => setLoading(false))
   }, [reviewKeyword]);
 
   useEffect(() => {
@@ -116,10 +120,11 @@ const Review = ({ category, keyword, setPageOffset }, ref) => {
             ))}
           </TagContainer>
           }
+          {loading ? <Loading /> : <>
           {contents &&
           <ReviewContainer>
             {contents}
-          </ReviewContainer>}
+          </ReviewContainer>}</>}
           <Pagination 
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}

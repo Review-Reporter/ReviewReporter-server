@@ -1,4 +1,5 @@
 import React, { useState, forwardRef, useEffect } from 'react';
+import Loading from '../common/Loading';
 import PopUp from '../common/PopUp';
 import DataAPI from '../../api/DataAPI';
 import AnalysisData from '../../assets/data/total_analysis_data.json';
@@ -26,6 +27,7 @@ import {
 } from '../../styles/TotalAnalysis';
 
 const TotalAnalysis = ({ category, setIsClicked, setPageOffset }, ref) => {
+  const [loading, setLoading] = useState(true);
   const [folder, setFolder] = useState(null);
   const [isInfoVisible, setIsInfoVisible] = useState(null);
   const [selectedKeywords, setSelectedKeywords] = useState([]);
@@ -112,9 +114,11 @@ const TotalAnalysis = ({ category, setIsClicked, setPageOffset }, ref) => {
       return str.replace(/ /gi, "");
     }
 
+    setLoading(true);
     setSelectedKeywords('');
     getSelectedKeywordData();
-    getKeywordData();
+    getKeywordData()
+    .then(() => setLoading(false))
     setFolder(getFolderName());
   }, [category])
   
@@ -122,7 +126,8 @@ const TotalAnalysis = ({ category, setIsClicked, setPageOffset }, ref) => {
     <PageContainer
       ref={ref}
     >
-      <TitleContainer>
+      {loading ? <Loading /> : <>
+        <TitleContainer>
         <Title><Category>{category}</Category> 카테고리 통합 분석</Title>
         <InfoIcon size="24"
           onClick={() => setIsInfoVisible(true)}
@@ -199,7 +204,7 @@ const TotalAnalysis = ({ category, setIsClicked, setPageOffset }, ref) => {
       >
         <GraphTitle>{selectedGraph}</GraphTitle>
         <Graph src={require(`../../assets/images/differencing/${folder}/${selectedGraph}.png`)}/>
-      </PopUp>}
+      </PopUp>}</>}
     </PageContainer>
   )
 };

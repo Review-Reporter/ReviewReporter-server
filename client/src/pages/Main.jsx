@@ -66,7 +66,7 @@ const Main = () => {
         if (pageYOffset > totalAnalysisOffset && pageYOffset <= keywordsOffset) 
           dispatch(setScrollPage("keywords"));
       if (analysisOffset >= 0)
-        if (pageYOffset > keywordsOffset&& pageYOffset <= analysisOffset) 
+        if (pageYOffset > keywordsOffset && pageYOffset <= analysisOffset) 
           dispatch(setScrollPage("analysis"));
       if (reviewOffset >= 0) {
         if (pageYOffset > analysisOffset) 
